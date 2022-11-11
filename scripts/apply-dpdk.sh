@@ -16,14 +16,16 @@ apt update -q
 apt install -y --no-install-recommends \
     build-essential \
     gcc-multilib \
+    kmod \
     libnuma-dev \
+    linux-headers-"$(uname -r)" \
     meson \
     ninja-build \
+    pciutils \
+    pkgconf \
     python-is-python3 \
     python3-pip \
     python3-pyelftools \
-    pciutils \
-    pkgconf \
     wget
 # end of list
 
