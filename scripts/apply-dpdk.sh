@@ -18,7 +18,7 @@ apt install -y --no-install-recommends \
     gcc-multilib \
     kmod \
     libnuma-dev \
-    linux-headers-"$(uname -r)" \
+    linux-headers-generic \
     meson \
     ninja-build \
     pciutils \
