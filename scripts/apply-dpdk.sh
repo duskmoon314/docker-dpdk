@@ -21,6 +21,9 @@ apt install -y --no-install-recommends \
     ninja-build \
     python-is-python3 \
     python3-pip \
+    python3-pyelftools \
+    pciutils \
+    pkgconf \
     wget
 # end of list
 
