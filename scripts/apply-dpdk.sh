@@ -37,14 +37,18 @@ mkdir "/home/dpdk"
 wget -q -O "$TEMP_DIR/dpdk.tar.xz" "https://fast.dpdk.org/rel/dpdk-$DPDK_VERSION.tar.xz"
 tar -xJf "$TEMP_DIR/dpdk.tar.xz" -C "/home/dpdk" --strip-components=1
 cd "/home/dpdk"
-if contains "17.11.10 18.11.11" $DPDK_VERSION; then
+if version_lt "$DPDK_VERSION" 19.11; then
     echo "Building Older DPDK with MAKE"
     make config T=x86_64-native-linuxapp-gcc
     make -j"$(nproc)"
     make install
 else
     echo "Building DPDK with MESON"
-    meson build
+    if version_lt "$DPDK_VERSION" 21.08; then
+        meson build
+    else
+        meson -Dplatform=generic build
+    fi
     ninja -C build
     ninja -C build install
     ldconfig

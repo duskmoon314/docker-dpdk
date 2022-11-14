@@ -16,3 +16,12 @@ command_exists() {
 contains() {
     [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && return 0 || return 1
 }
+
+# https://stackoverflow.com/a/4024263/15766817
+version_lte() {
+    printf '%s\n%s' "$1" "$2" | sort -C -V
+}
+
+version_lt() {
+    ! version_lte "$2" "$1"
+}
