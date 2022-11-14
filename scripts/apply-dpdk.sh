@@ -19,6 +19,7 @@ apt install -y --no-install-recommends \
     kmod \
     libnuma-dev \
     linux-headers-generic \
+    iproute2 \
     meson \
     ninja-build \
     pciutils \

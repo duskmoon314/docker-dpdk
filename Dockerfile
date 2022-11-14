@@ -4,7 +4,9 @@ LABEL MAINTAINER="duskmoon <kp.campbell.he@duskmoon314.com>"
 
 ARG DESKTOP_MACHINE=no
 
-ARG DPDK_VERSION=22.07
+ARG DPDK_VERSION=22.07 \
+    # Only used for installing Pcap++ \
+    PCAPPP_VERSION=22.07
 
 ARG SCRIPT=apply-dpdk.sh
 
