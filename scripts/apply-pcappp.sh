@@ -28,5 +28,6 @@ wget -q -O "$TEMP_DIR/PcapPlusPlus.tar.gz" "https://github.com/seladb/PcapPlusPl
 tar -xzf "$TEMP_DIR/PcapPlusPlus.tar.gz" -C "/home/PcapPlusPlus" --strip-components=1
 cd "/home/PcapPlusPlus"
 ./configure-linux.sh --dpdk --dpdk-home "/home/dpdk"
-make libs -j"$(nproc)"
+# AVX is needed for DPDK v19
+LDFLAGS="-mavx" make libs -j"$(nproc)"
 make install
