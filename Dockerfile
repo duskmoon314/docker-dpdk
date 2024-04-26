@@ -1,4 +1,4 @@
-ARG BASE_IMG=ubuntu:22.04
+ARG BASE_IMG=ubuntu:24.04
 FROM ${BASE_IMG}
 LABEL MAINTAINER="duskmoon <kp.campbell.he@duskmoon314.com>"
 
